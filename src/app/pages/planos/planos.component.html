@@ -1,0 +1,88 @@
+<div class="page-hero">
+    <div class="hero-glow"></div>
+    <div class="container">
+        <div class="section-header" #animateEl>
+            <span class="section-label">Planos</span>
+            <h1 class="section-title">Comparativo completo</h1>
+            <p class="section-subtitle">Encontre o plano ideal para o seu projeto. Investimento único + suporte mensal
+                opcional.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Plan Cards -->
+<section class="section">
+    <div class="container">
+        <div class="plans-cards">
+            @for (plan of plans; track plan.name; let i = $index) {
+            <div class="plan-card" [class.highlighted]="plan.highlighted" #animateEl [class]="'delay-' + (i + 1)">
+                @if (plan.highlighted) {
+                <div class="plan-badge">Mais popular</div>
+                }
+                <h3 class="plan-name">{{ plan.name }}</h3>
+                <div class="plan-price">
+                    @if (plan.price) {
+                    <span class="prefix">a partir de</span>
+                    <span class="value">R$ {{ plan.price }}</span>
+                    } @else {
+                    <span class="value custom">Sob consulta</span>
+                    }
+                </div>
+                <p class="plan-desc">{{ plan.desc }}</p>
+                @if (plan.support) {
+                <p class="plan-support">Suporte: R$ {{ plan.support }}/mês</p>
+                } @else {
+                <p class="plan-support">Suporte incluso (18 meses)</p>
+                }
+                <a routerLink="/contato" class="btn" [class.btn-primary]="plan.highlighted"
+                    [class.btn-secondary]="!plan.highlighted">
+                    Solicitar diagnóstico
+                </a>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Comparison Table -->
+<section class="section comparison-section">
+    <div class="container">
+        <h2 class="compare-title" #animateEl>Tabela comparativa detalhada</h2>
+
+        <div class="table-wrapper" #animateEl>
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th class="feature-col">Recurso</th>
+                        <th>Básico</th>
+                        <th class="highlight-col">Pro</th>
+                        <th>Master</th>
+                        <th>Sob Medida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (feat of features; track feat.name) {
+                    <tr>
+                        <td class="feature-name">{{ feat.name }}</td>
+                        <td [class.check]="isBoolTrue(feat.basico)" [class.cross]="isBoolFalse(feat.basico)">{{
+                            getCellValue(feat.basico) }}</td>
+                        <td class="highlight-col" [class.check]="isBoolTrue(feat.pro)"
+                            [class.cross]="isBoolFalse(feat.pro)">{{ getCellValue(feat.pro) }}</td>
+                        <td [class.check]="isBoolTrue(feat.master)" [class.cross]="isBoolFalse(feat.master)">{{
+                            getCellValue(feat.master) }}</td>
+                        <td [class.check]="isBoolTrue(feat.sobmedida)" [class.cross]="isBoolFalse(feat.sobmedida)">{{
+                            getCellValue(feat.sobmedida) }}</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="compare-cta" #animateEl>
+            <p>Não sabe qual plano é o ideal?</p>
+            <a [href]="whatsappLink" target="_blank" rel="noopener" class="btn btn-whatsapp">
+                Falar com especialista
+            </a>
+        </div>
+    </div>
+</section>

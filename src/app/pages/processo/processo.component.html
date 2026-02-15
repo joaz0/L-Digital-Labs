@@ -1,0 +1,62 @@
+<div class="page-hero">
+    <div class="hero-glow"></div>
+    <div class="container">
+        <div class="section-header" #animateEl>
+            <span class="section-label">Como entregamos</span>
+            <h1 class="section-title">Processo em 7 etapas</h1>
+            <p class="section-subtitle">Cada projeto segue um processo claro e previsível. Sem surpresas, com
+                acompanhamento em cada fase.</p>
+        </div>
+    </div>
+</div>
+
+<section class="section timeline-section">
+    <div class="container">
+        <div class="timeline">
+            @for (step of steps; track step.num; let i = $index) {
+            <div class="timeline-item" #animateEl [class]="'delay-' + ((i % 4) + 1)">
+                <div class="timeline-marker">
+                    <span class="marker-num">{{ step.num }}</span>
+                    <div class="marker-line"></div>
+                </div>
+                <div class="timeline-content glass-card">
+                    <div class="timeline-header">
+                        <h3>{{ step.title }}</h3>
+                        <span class="timeline-duration">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            {{ step.duration }}
+                        </span>
+                    </div>
+                    <p class="timeline-desc">{{ step.desc }}</p>
+                    <ul class="timeline-details">
+                        @for (detail of step.details; track detail) {
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            {{ detail }}
+                        </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            }
+        </div>
+
+        <div class="process-cta" #animateEl>
+            <div class="glass cta-block">
+                <h2>Pronto para começar?</h2>
+                <p>O primeiro passo é o diagnóstico gratuito. Fale com a gente.</p>
+                <div class="cta-actions">
+                    <a [href]="whatsappLink" target="_blank" class="btn btn-whatsapp">Falar no WhatsApp</a>
+                    <a routerLink="/contato" class="btn btn-primary">Solicitar diagnóstico</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

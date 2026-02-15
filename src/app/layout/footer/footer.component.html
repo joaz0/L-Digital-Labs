@@ -1,0 +1,100 @@
+<footer class="footer">
+    <div class="footer-glow"></div>
+    <div class="container">
+        <!-- Top Section -->
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a routerLink="/" class="footer-logo">
+                    <img src="assets/images/logo.png" alt="L Digital Labs" width="48" height="48">
+                    <span class="logo-text">L<span class="dot">.</span>digitallabs</span>
+                </a>
+                <p class="footer-desc">
+                    Sistemas web sob medida para empresas profissionais.
+                    Do MVP ao sistema robusto — com governança, documentação e evolução por etapas.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Navegação</h4>
+                    <a routerLink="/">Início</a>
+                    <a routerLink="/planos">Planos</a>
+                    <a routerLink="/processo">Processo</a>
+                    <a routerLink="/contato">Contato</a>
+                </div>
+
+                <div class="link-group">
+                    <h4>Serviços</h4>
+                    <a routerLink="/" fragment="servicos">Sistemas Sob Medida</a>
+                    <a routerLink="/" fragment="servicos">APIs e Integrações</a>
+                    <a routerLink="/" fragment="servicos">Modernização de Legados</a>
+                </div>
+
+                <div class="link-group">
+                    <h4>Contato</h4>
+                    <a [href]="whatsappLink" target="_blank" rel="noopener">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                        </svg>
+                        (35) 99266-9710
+                    </a>
+                    <a href="mailto:contato@ldigitallabs.com.br">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                        </svg>
+                        contato&#64;ldigitallabs.com.br
+                    </a>
+                    <span class="location">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        Pouso Alegre – MG
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="trust-badges">
+            <div class="badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="m9 12 2 2 4-4" />
+                </svg>
+                <span>Garantia 30 dias</span>
+            </div>
+            <div class="badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                        d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                </svg>
+                <span>Entregas por marcos</span>
+            </div>
+            <div class="badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                    <polyline points="10 9 9 9 8 9" />
+                </svg>
+                <span>Documentação inclusa</span>
+            </div>
+        </div>
+
+        <!-- Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; {{ currentYear }} L Digital Labs. Todos os direitos reservados.</p>
+            <p class="footer-legal">
+                <a href="#">Política de Privacidade</a>
+                <span class="sep">•</span>
+                <a href="#">Termos de Uso</a>
+            </p>
+        </div>
+    </div>
+</footer>
