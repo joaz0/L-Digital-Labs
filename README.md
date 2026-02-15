@@ -54,7 +54,3 @@ ng build --configuration=production
 **Vercel:** `npx vercel`
 **Netlify:** Build `ng build --configuration=production`, publish `dist/ldigitallabs-site/browser`
 **Estático:** Sirva `dist/ldigitallabs-site/browser/` com nginx/apache
-
-## Contribuindo
-
-Veja [CONTRIBUTING.md](CONTRIBUTING.md).
