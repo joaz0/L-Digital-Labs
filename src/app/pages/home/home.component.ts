@@ -1,5 +1,6 @@
-import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { AnalyticsService } from '../../shared/services/analytics.service';
 
 @Component({
     selector: 'app-home',
@@ -9,6 +10,7 @@ import { RouterLink } from '@angular/router';
 })
 export class HomeComponent implements AfterViewInit {
     @ViewChildren('animateEl') animateElements!: QueryList<ElementRef>;
+    private analytics = inject(AnalyticsService);
 
     readonly whatsappLink = 'https://wa.me/5535992669710?text=Olá!%20Gostaria%20de%20solicitar%20um%20diagnóstico%20para%20meu%20projeto.';
 
@@ -138,6 +140,14 @@ export class HomeComponent implements AfterViewInit {
 
     toggleFaq(index: number) {
         this.openFaqIndex = this.openFaqIndex === index ? null : index;
+    }
+
+    trackWhatsApp(location: string): void {
+        this.analytics.trackWhatsAppClick(location);
+    }
+
+    trackCta(label: string, location: string): void {
+        this.analytics.trackCtaClick(label, location);
     }
 
     ngAfterViewInit() {

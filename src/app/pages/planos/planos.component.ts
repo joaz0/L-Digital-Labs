@@ -1,5 +1,6 @@
-import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { AnalyticsService } from '../../shared/services/analytics.service';
 
 @Component({
     selector: 'app-planos',
@@ -9,6 +10,7 @@ import { RouterLink } from '@angular/router';
 })
 export class PlanosComponent implements AfterViewInit {
     @ViewChildren('animateEl') animateElements!: QueryList<ElementRef>;
+    private analytics = inject(AnalyticsService);
 
     readonly whatsappLink = 'https://wa.me/5535992669710?text=Olá!%20Tenho%20interesse%20em%20um%20dos%20planos%20da%20L%20Digital%20Labs.';
 
@@ -81,6 +83,14 @@ export class PlanosComponent implements AfterViewInit {
 
     isBoolFalse(value: any): boolean {
         return value === false;
+    }
+
+    trackWhatsApp(): void {
+        this.analytics.trackWhatsAppClick('planos');
+    }
+
+    trackCta(label: string): void {
+        this.analytics.trackCtaClick(label, 'planos');
     }
 
     ngAfterViewInit() {

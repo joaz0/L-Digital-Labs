@@ -1,5 +1,6 @@
-import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AnalyticsService } from '../../shared/services/analytics.service';
 
 @Component({
     selector: 'app-contato',
@@ -9,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ContatoComponent implements AfterViewInit {
     @ViewChildren('animateEl') animateElements!: QueryList<ElementRef>;
+    private analytics = inject(AnalyticsService);
 
     readonly whatsappLink = 'https://wa.me/5535992669710?text=Olá!%20Gostaria%20de%20solicitar%20um%20diagnóstico%20para%20meu%20projeto.';
 
@@ -53,7 +55,12 @@ export class ContatoComponent implements AfterViewInit {
         );
 
         window.open(`https://wa.me/5535992669710?text=${message}`, '_blank');
+        this.analytics.trackFormSubmit(this.formData.plano);
         this.formSubmitted = true;
+    }
+
+    trackWhatsApp(): void {
+        this.analytics.trackWhatsAppClick('contato');
     }
 
     ngAfterViewInit() {

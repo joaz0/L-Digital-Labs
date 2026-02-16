@@ -35,7 +35,7 @@
                 <p class="plan-support">Suporte incluso (18 meses)</p>
                 }
                 <a routerLink="/contato" class="btn" [class.btn-primary]="plan.highlighted"
-                    [class.btn-secondary]="!plan.highlighted">
+                    [class.btn-secondary]="!plan.highlighted" (click)="trackCta('Solicitar diagnóstico')">
                     Solicitar diagnóstico
                 </a>
             </div>
@@ -80,7 +80,8 @@
 
         <div class="compare-cta" #animateEl>
             <p>Não sabe qual plano é o ideal?</p>
-            <a [href]="whatsappLink" target="_blank" rel="noopener" class="btn btn-whatsapp">
+            <a [href]="whatsappLink" target="_blank" rel="noopener" class="btn btn-whatsapp" id="cta-whatsapp-planos"
+                (click)="trackWhatsApp()">
                 Falar com especialista
             </a>
         </div>

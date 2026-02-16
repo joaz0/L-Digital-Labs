@@ -1,5 +1,6 @@
 import { Component, HostListener, signal, inject } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { AnalyticsService } from '../../shared/services/analytics.service';
 
 @Component({
     selector: 'app-header',
@@ -9,6 +10,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class HeaderComponent {
     private router = inject(Router);
+    private analytics = inject(AnalyticsService);
 
     isScrolled = signal(false);
     isMobileMenuOpen = signal(false);
@@ -70,6 +72,10 @@ export class HeaderComponent {
                 }
             }
         }
+    }
+
+    trackWhatsApp(location: string): void {
+        this.analytics.trackWhatsAppClick(location);
     }
 }
 
